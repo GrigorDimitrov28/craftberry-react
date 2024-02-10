@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import styles from "./style.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const FourthQuestion = () => {
+const FourthQuestion = ({ answer, setAnswer }) => {
   const [active, setActive] = useState(null);
+
+  useEffect(() => {
+    setActive(answer);
+  }, []);
+
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.question}>
@@ -17,14 +22,18 @@ const FourthQuestion = () => {
           a. Breakage
         </div>
         <div
-          onClick={() => setActive(2)}
-          className={`${styles.answer} ${active == 2 ? styles.active : ""}`}
+          onClick={() => setActive("type_frizzy")}
+          className={`${styles.answer} ${
+            active == "type_frizzy" ? styles.active : ""
+          }`}
         >
           b. Frizz
         </div>
         <div
-          onClick={() => setActive(3)}
-          className={`${styles.answer} ${active == 3 ? styles.active : ""}`}
+          onClick={() => setActive("type_dry")}
+          className={`${styles.answer} ${
+            active == "type_dry" ? styles.active : ""
+          }`}
         >
           c. Scalp dryness
         </div>
@@ -46,7 +55,13 @@ const FourthQuestion = () => {
         <Link to="/q3" className={styles.back}>
           Back
         </Link>
-        <Link to="/q5" className={styles.next}>
+        <Link
+          onClick={() => {
+            setAnswer("qFourth", active);
+          }}
+          to="/q5"
+          className={styles.next}
+        >
           Next question
         </Link>
       </div>

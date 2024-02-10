@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import LandingPage from "./pages/landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FirstQuestion from "./pages/questions/q1";
@@ -10,6 +10,7 @@ import FifthQuestion from "./pages/questions/q5";
 import ResultsPage from "./pages/results";
 
 function App() {
+  // Store answers here to be accessible after page navigation
   const [answers, setAnswers] = useState({
     qFirst: null,
     qSecond: null,
@@ -18,16 +19,86 @@ function App() {
     qFifth: null,
   });
 
+  // Set current answer from each page
+  const handleSetAnswer = (question, answer) => {
+    setAnswers({
+      ...answers,
+      [question]: answer,
+    });
+  };
+
+  useEffect(() => {
+    const getData = async () => {
+      const data = await fetch(
+        "https://jeval.com.au/collections/hair-care/products.json?page=1"
+      );
+      const result = await data.json();
+
+      console.log(result.products.forEach((p) => console.log(p)));
+    };
+
+    getData();
+  });
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />}></Route>
-        <Route path="/q1" exact element={<FirstQuestion />}></Route>
-        <Route path="/q2" exact element={<SecondQuestion />}></Route>
-        <Route path="/q3" exact element={<ThirdQuestion />}></Route>
-        <Route path="/q4" exact element={<FourthQuestion />}></Route>
-        <Route path="/q5" exact element={<FifthQuestion />}></Route>
-        <Route path="/results" exact element={<ResultsPage />}></Route>
+        <Route
+          path="/q1"
+          exact
+          element={
+            <FirstQuestion
+              answer={answers.qFirst}
+              setAnswer={handleSetAnswer}
+            />
+          }
+        ></Route>
+        <Route
+          path="/q2"
+          exact
+          element={
+            <SecondQuestion
+              answer={answers.qSecond}
+              setAnswer={handleSetAnswer}
+            />
+          }
+        ></Route>
+        <Route
+          path="/q3"
+          exact
+          element={
+            <ThirdQuestion
+              answer={answers.qThird}
+              setAnswer={handleSetAnswer}
+            />
+          }
+        ></Route>
+        <Route
+          path="/q4"
+          exact
+          element={
+            <FourthQuestion
+              answer={answers.qFourth}
+              setAnswer={handleSetAnswer}
+            />
+          }
+        ></Route>
+        <Route
+          path="/q5"
+          exact
+          element={
+            <FifthQuestion
+              answer={answers.qFifth}
+              setAnswer={handleSetAnswer}
+            />
+          }
+        ></Route>
+        <Route
+          path="/results"
+          exact
+          element={<ResultsPage state={answers} />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );

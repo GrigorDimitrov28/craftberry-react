@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import styles from "./style.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const SecondQuestion = () => {
+const SecondQuestion = ({ answer, setAnswer }) => {
   const [active, setActive] = useState(null);
+
+  useEffect(() => {
+    setActive(answer);
+  }, []);
 
   return (
     <div className={styles.wrapper}>
@@ -55,7 +59,13 @@ const SecondQuestion = () => {
         <Link to="/q1" className={styles.back}>
           Back
         </Link>
-        <Link to="/q3" className={styles.next}>
+        <Link
+          onClick={() => {
+            setAnswer("qSecond", active);
+          }}
+          to="/q3"
+          className={styles.next}
+        >
           Next question
         </Link>
       </div>
