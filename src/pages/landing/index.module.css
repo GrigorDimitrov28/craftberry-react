@@ -1,0 +1,49 @@
+.container {
+  width: 100%;
+  height: 50%;
+  background-image: url("../../../public/9545e9b86afd1e9c431704007c1c0714.jfif");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container h1 {
+  color: white;
+  font-family: "Grange", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+  line-height: 44px;
+  font-size: 40px;
+  height: 88px;
+  width: 583px;
+}
+
+.container p {
+  color: white;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.start {
+  background-color: #c3edff;
+  border-radius: 8px;
+  border: none;
+  height: 47px;
+  width: 147px;
+  color: #1c2635;
+  font-weight: 500;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 19.49px;
+}
+
+.start {
+  cursor: pointer;
+}
