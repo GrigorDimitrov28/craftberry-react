@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import LandingPage from "./pages/landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FirstQuestion from "./pages/questions/q1";
@@ -8,6 +8,7 @@ import ThirdQuestion from "./pages/questions/q3";
 import FourthQuestion from "./pages/questions/q4";
 import FifthQuestion from "./pages/questions/q5";
 import ResultsPage from "./pages/results";
+import ProgressBar from "./components/ProgressBar";
 
 function App() {
   // Store answers here to be accessible after page navigation
@@ -27,18 +28,18 @@ function App() {
     });
   };
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await fetch(
-        "https://jeval.com.au/collections/hair-care/products.json?page=1"
-      );
-      const result = await data.json();
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const data = await fetch(
+  //       "https://jeval.com.au/collections/hair-care/products.json?page=1"
+  //     );
+  //     const result = await data.json();
 
-      console.log(result.products.forEach((p) => console.log(p)));
-    };
+  //     console.log(result.products.forEach((p) => console.log(p)));
+  //   };
 
-    getData();
-  });
+  //   getData();
+  // });
 
   return (
     <BrowserRouter>
@@ -100,6 +101,7 @@ function App() {
           element={<ResultsPage state={answers} />}
         ></Route>
       </Routes>
+      <ProgressBar />
     </BrowserRouter>
   );
 }

@@ -5,7 +5,7 @@
   height: 100%;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 32px;
 }
 
 .question {
@@ -43,7 +43,7 @@
 
 .linkContainer {
   display: flex;
-  width: 244px;
+  width: auto;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -60,4 +60,13 @@
   color: black;
   padding: 14px 40px 14px 40px;
   border-radius: 8px;
+}
+
+.discover {
+  background-color: #c3edff;
+  text-decoration: none;
+  color: black;
+  padding: 14px 40px 14px 40px;
+  border-radius: 8px;
+  font-weight: 500;
 }

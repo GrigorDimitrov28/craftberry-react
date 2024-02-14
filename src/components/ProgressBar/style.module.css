@@ -1,0 +1,49 @@
+.wrapper {
+  position: absolute;
+  height: 102px;
+  width: 102px;
+  border-radius: 8px;
+  background-color: transparent;
+  top: 40%;
+  right: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circularProgress {
+  position: relative;
+  height: 101px;
+  width: 101px;
+  border-radius: 50%;
+  background: conic-gradient(#aaddf3 var(--rotation-angle), #eef7fb 0deg);
+  background-color: #aaddf3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circularProgress span {
+  z-index: 1;
+}
+
+.circularProgress::after {
+  content: "";
+  height: 90px;
+  width: 90px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  border-radius: 50%;
+  background-color: white;
+  z-index: 0;
+}
+
+@keyframes firstRight {
+  from {
+    background: conic-gradient(#aaddf3 72deg, #eef7fb 0deg);
+  }
+  to {
+    background: conic-gradient(#aaddf3 144deg, #eef7fb 0deg);
+  }
+}

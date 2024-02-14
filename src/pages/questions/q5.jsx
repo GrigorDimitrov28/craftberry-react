@@ -56,7 +56,7 @@ const FifthQuestion = ({ answer, setAnswer }) => {
             setAnswer("qFifth", active);
           }}
           to="/results"
-          className={styles.next}
+          className={styles.discover}
         >
           Discover your results
         </Link>

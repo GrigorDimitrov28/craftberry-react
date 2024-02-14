@@ -1,0 +1,143 @@
+.wrapper {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.bg {
+  height: 50%;
+  width: 100%;
+  background-image: url("/pexels-taryn-elliott-4426556.jpg");
+  background-size: cover;
+  background-position-y: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+
+.bg h1 {
+  color: white;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+  line-height: 44px;
+  font-size: 40px;
+  height: 88px;
+  width: 583px;
+  z-index: 1;
+}
+
+.bg p {
+  color: white;
+  width: 563px;
+  height: 131px;
+  text-align: center;
+  z-index: 1;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400px;
+}
+
+.bg a {
+  border: 1px solid white;
+  border-radius: 8px;
+  padding: 14px 0px;
+  text-decoration: none;
+  color: white;
+  z-index: 1;
+  width: 238px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 50vh;
+  background-color: #000000;
+  opacity: 55%;
+}
+
+.swiper {
+  height: 420px;
+  position: absolute;
+  top: -30px;
+  width: 1122px;
+}
+
+.swiperFirst,
+.slide {
+  height: 100%;
+  border-radius: 8px;
+  width: 350px;
+}
+
+.swiperFirst {
+  background-color: #eef7fb;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.firstContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+}
+
+.firstContent h2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 26.4px;
+  color: #1c2635;
+}
+
+.firstContent p {
+  width: 231px;
+  height: 286px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #1c2635;
+}
+
+.slide {
+  background-color: white;
+  position: relative;
+}
+
+.heart {
+  position: absolute;
+  right: 17px;
+  top: 17px;
+  width: 24px;
+  height: 24px;
+}
+
+.heart:hover {
+  cursor: pointer;
+}
+
+.productCover {
+  height: 345px;
+  width: 100%;
+  /* background-color: #f6f6f6; */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.productCover img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
