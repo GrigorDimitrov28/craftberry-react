@@ -4,7 +4,6 @@
   width: 100%;
   height: 100%;
   align-items: center;
-  justify-content: center;
   gap: 32px;
 }
 
@@ -15,6 +14,7 @@
   line-height: 44px;
   font-weight: 500;
   color: #1c2635;
+  margin-top: 352px;
 }
 
 .answerContainer {
@@ -22,12 +22,43 @@
   gap: 8px;
 }
 
+.thirdAnswerContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  width: 928px;
+  align-items: center;
+  justify-content: center;
+}
+
 .answer {
   border: 1px solid #5bc1ed;
+  color: #1c2635;
   border-radius: 8px;
   padding: 14px 0px 14px 20px;
   width: 169px;
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.threeD {
+  border: 1px solid #5bc1ed;
+  color: #1c2635;
+  border-radius: 8px;
+  padding: 14px 0px 14px 20px;
+  width: 309px;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 400;
+}
+
+.threeF {
+  border: 1px solid #5bc1ed;
+  color: #1c2635;
+  border-radius: 8px;
+  padding: 14px 0px 14px 20px;
+  width: 217px;
   font-size: 16px;
   line-height: 16px;
   font-weight: 400;
@@ -51,21 +82,29 @@
 
 .back {
   color: #677487;
+  font-weight: 500;
   line-height: 19.49px;
 }
 
 .next {
   background-color: #c3edff;
   text-decoration: none;
-  color: black;
-  padding: 14px 40px 14px 40px;
+  width: 189px;
+  color: #1c2635;
+  align-items: center;
+  justify-content: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
   border-radius: 8px;
+  display: flex;
+  gap: 8px;
+  font-weight: 500;
 }
 
 .discover {
   background-color: #c3edff;
   text-decoration: none;
-  color: black;
+  color: #1c2635;
   padding: 14px 40px 14px 40px;
   border-radius: 8px;
   font-weight: 500;

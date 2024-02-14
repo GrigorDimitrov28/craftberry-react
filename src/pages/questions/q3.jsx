@@ -14,7 +14,7 @@ const ThirdQuestion = ({ answer, setAnswer }) => {
       <h1 className={styles.question}>
         What benefit do you look for in your hair products?
       </h1>
-      <div className={styles.answerContainer}>
+      <div className={styles.thirdAnswerContainer}>
         <div
           onClick={() => setActive(1)}
           className={`${styles.answer} ${active == 1 ? styles.active : ""}`}
@@ -37,7 +37,7 @@ const ThirdQuestion = ({ answer, setAnswer }) => {
         </div>
         <div
           onClick={() => setActive(4)}
-          className={`${styles.answer} ${active == 4 ? styles.active : ""}`}
+          className={`${styles.threeD} ${active == 4 ? styles.active : ""}`}
         >
           d. Repairs appearance of damaged hair
         </div>
@@ -49,7 +49,7 @@ const ThirdQuestion = ({ answer, setAnswer }) => {
         </div>
         <div
           onClick={() => setActive(6)}
-          className={`${styles.answer} ${active == 6 ? styles.active : ""}`}
+          className={`${styles.threeF} ${active == 6 ? styles.active : ""}`}
         >
           f. Curl and coil enhancing
         </div>
@@ -67,6 +67,30 @@ const ThirdQuestion = ({ answer, setAnswer }) => {
           className={styles.next}
         >
           Next question
+          <svg
+            width="21"
+            height="20"
+            viewBox="0 0 21 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_2_55)">
+              <path
+                d="M13.8517 5.38135L17.7527 9.28229L1.21736 9.28219L1.21736 10.7174L17.7527 10.7173L13.8517 14.6183L14.8666 15.6332L20.5 9.9998L14.8666 4.36643L13.8517 5.38135Z"
+                fill="#1C2635"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_2_55">
+                <rect
+                  width="20"
+                  height="20"
+                  fill="white"
+                  transform="translate(0.5)"
+                />
+              </clipPath>
+            </defs>
+          </svg>
         </Link>
       </div>
     </div>
