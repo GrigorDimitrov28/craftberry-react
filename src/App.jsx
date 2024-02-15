@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LandingPage from "./pages/landing";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FirstQuestion from "./pages/questions/q1";
@@ -20,6 +20,8 @@ function App() {
     qFifth: null,
   });
 
+  const [isLoaded, setIsLoaded] = useState(null);
+
   // Set current answer from each page
   const handleSetAnswer = (question, answer) => {
     setAnswers({
@@ -28,18 +30,19 @@ function App() {
     });
   };
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const data = await fetch(
-  //       "https://jeval.com.au/collections/hair-care/products.json?page=1"
-  //     );
-  //     const result = await data.json();
+  // Remember the answer state during reloads
+  useEffect(() => {
+    const localAnswers = JSON.parse(localStorage.getItem("answers"));
+    setAnswers(localAnswers);
+    setIsLoaded(true);
+  }, []);
 
-  //     console.log(result.products.forEach((p) => console.log(p)));
-  //   };
-
-  //   getData();
-  // });
+  // Update localStorage values on new answer
+  useEffect(() => {
+    if (isLoaded) {
+      localStorage.setItem("answers", JSON.stringify(answers));
+    }
+  }, [answers]);
 
   return (
     <BrowserRouter>
@@ -92,13 +95,14 @@ function App() {
             <FifthQuestion
               answer={answers.qFifth}
               setAnswer={handleSetAnswer}
+              state={answers}
             />
           }
         ></Route>
         <Route
           path="/results"
           exact
-          element={<ResultsPage state={answers} />}
+          element={<ResultsPage state={answers} clear={setAnswers} />}
         ></Route>
       </Routes>
       <ProgressBar />

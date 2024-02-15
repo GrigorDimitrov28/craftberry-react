@@ -16,8 +16,10 @@ const FourthQuestion = ({ answer, setAnswer }) => {
       </h1>
       <div className={styles.answerContainer}>
         <div
-          onClick={() => setActive(1)}
-          className={`${styles.answer} ${active == 1 ? styles.active : ""}`}
+          onClick={() => setActive("type_breakage")}
+          className={`${styles.answer} ${
+            active == "type_breakage" ? styles.active : ""
+          }`}
         >
           a. Breakage
         </div>
@@ -38,14 +40,18 @@ const FourthQuestion = ({ answer, setAnswer }) => {
           c. Scalp dryness
         </div>
         <div
-          onClick={() => setActive(4)}
-          className={`${styles.answer} ${active == 4 ? styles.active : ""}`}
+          onClick={() => setActive("type_damaged")}
+          className={`${styles.answer} ${
+            active == "type_damaged" ? styles.active : ""
+          }`}
         >
           d. Damage
         </div>
         <div
-          onClick={() => setActive(5)}
-          className={`${styles.answer} ${active == 5 ? styles.active : ""}`}
+          onClick={() => setActive("type_tangling")}
+          className={`${styles.answer} ${
+            active == "type_tangling" ? styles.active : ""
+          }`}
         >
           e. Tangling
         </div>
@@ -70,7 +76,7 @@ const FourthQuestion = ({ answer, setAnswer }) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g clip-path="url(#clip0_2_55)">
+            <g clipPath="url(#clip0_2_55)">
               <path
                 d="M13.8517 5.38135L17.7527 9.28229L1.21736 9.28219L1.21736 10.7174L17.7527 10.7173L13.8517 14.6183L14.8666 15.6332L20.5 9.9998L14.8666 4.36643L13.8517 5.38135Z"
                 fill="#1C2635"

@@ -16,8 +16,10 @@ const ThirdQuestion = ({ answer, setAnswer }) => {
       </h1>
       <div className={styles.thirdAnswerContainer}>
         <div
-          onClick={() => setActive(1)}
-          className={`${styles.answer} ${active == 1 ? styles.active : ""}`}
+          onClick={() => setActive("goals_toning")}
+          className={`${styles.answer} ${
+            active == "goals_toning" ? styles.active : ""
+          }`}
         >
           a. Anti-breakage
         </div>
@@ -30,26 +32,34 @@ const ThirdQuestion = ({ answer, setAnswer }) => {
           b. Hydration
         </div>
         <div
-          onClick={() => setActive(3)}
-          className={`${styles.answer} ${active == 3 ? styles.active : ""}`}
+          onClick={() => setActive("goals_oil control")}
+          className={`${styles.answer} ${
+            active == "goals_oil control" ? styles.active : ""
+          }`}
         >
           c. Soothing dry scalp
         </div>
         <div
-          onClick={() => setActive(4)}
-          className={`${styles.threeD} ${active == 4 ? styles.active : ""}`}
+          onClick={() => setActive("goals_texture")}
+          className={`${styles.threeD} ${
+            active == "goals_texture" ? styles.active : ""
+          }`}
         >
           d. Repairs appearance of damaged hair
         </div>
         <div
-          onClick={() => setActive(5)}
-          className={`${styles.answer} ${active == 5 ? styles.active : ""}`}
+          onClick={() => setActive("goals_volumise")}
+          className={`${styles.answer} ${
+            active == "goals_volumise" ? styles.active : ""
+          }`}
         >
           e. Volume
         </div>
         <div
-          onClick={() => setActive(6)}
-          className={`${styles.threeF} ${active == 6 ? styles.active : ""}`}
+          onClick={() => setActive("goals_curl definition")}
+          className={`${styles.threeF} ${
+            active == "goals_curl definition" ? styles.active : ""
+          }`}
         >
           f. Curl and coil enhancing
         </div>
@@ -74,7 +84,7 @@ const ThirdQuestion = ({ answer, setAnswer }) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g clip-path="url(#clip0_2_55)">
+            <g clipPath="url(#clip0_2_55)">
               <path
                 d="M13.8517 5.38135L17.7527 9.28229L1.21736 9.28219L1.21736 10.7174L17.7527 10.7173L13.8517 14.6183L14.8666 15.6332L20.5 9.9998L14.8666 4.36643L13.8517 5.38135Z"
                 fill="#1C2635"

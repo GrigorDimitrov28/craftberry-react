@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styles from "./style.module.css";
 import { useState, useEffect } from "react";
 
-const FifthQuestion = ({ answer, setAnswer }) => {
+const FifthQuestion = ({ answer, setAnswer, state }) => {
   const [active, setActive] = useState(null);
 
   useEffect(() => {
@@ -16,32 +16,40 @@ const FifthQuestion = ({ answer, setAnswer }) => {
       </h1>
       <div className={styles.answerContainer}>
         <div
-          onClick={() => setActive(1)}
-          className={`${styles.answer} ${active == 1 ? styles.active : ""}`}
+          onClick={() => setActive("Black")}
+          className={`${styles.answer} ${
+            active == "Black" ? styles.active : ""
+          }`}
         >
           a. Black
         </div>
         <div
-          onClick={() => setActive(2)}
-          className={`${styles.answer} ${active == 2 ? styles.active : ""}`}
+          onClick={() => setActive("Brown")}
+          className={`${styles.answer} ${
+            active == "Brown" ? styles.active : ""
+          }`}
         >
           b. Brown
         </div>
         <div
-          onClick={() => setActive(3)}
-          className={`${styles.answer} ${active == 3 ? styles.active : ""}`}
+          onClick={() => setActive("Blonde")}
+          className={`${styles.answer} ${
+            active == "Blonde" ? styles.active : ""
+          }`}
         >
           c. Blonde
         </div>
         <div
-          onClick={() => setActive(4)}
-          className={`${styles.answer} ${active == 4 ? styles.active : ""}`}
+          onClick={() => setActive("Red")}
+          className={`${styles.answer} ${active == "Red" ? styles.active : ""}`}
         >
           d. Red/Orange
         </div>
         <div
-          onClick={() => setActive(5)}
-          className={`${styles.answer} ${active == 5 ? styles.active : ""}`}
+          onClick={() => setActive("Silver")}
+          className={`${styles.answer} ${
+            active == "Silver" ? styles.active : ""
+          }`}
         >
           e. Silver/Grey
         </div>

@@ -15,41 +15,51 @@ const SecondQuestion = ({ answer, setAnswer }) => {
       <div className={styles.answerContainer}>
         <div
           onClick={() => {
-            setActive(1);
+            setActive("Daily");
           }}
-          className={`${styles.answer} ${active == 1 ? styles.active : ""}`}
+          className={`${styles.answer} ${
+            active == "Daily" ? styles.active : ""
+          }`}
         >
           a. Daily
         </div>
         <div
           onClick={() => {
-            setActive(2);
+            setActive("otherDay");
           }}
-          className={`${styles.answer} ${active == 2 ? styles.active : ""}`}
+          className={`${styles.answer} ${
+            active == "otherDay" ? styles.active : ""
+          }`}
         >
           b. Every other day
         </div>
         <div
           onClick={() => {
-            setActive(3);
+            setActive("twice");
           }}
-          className={`${styles.answer} ${active == 3 ? styles.active : ""}`}
+          className={`${styles.answer} ${
+            active == "twice" ? styles.active : ""
+          }`}
         >
           c. Twice a week
         </div>
         <div
           onClick={() => {
-            setActive(4);
+            setActive("onceWeek");
           }}
-          className={`${styles.answer} ${active == 4 ? styles.active : ""}`}
+          className={`${styles.answer} ${
+            active == "onceWeek" ? styles.active : ""
+          }`}
         >
           d. Once a week
         </div>
         <div
           onClick={() => {
-            setActive(5);
+            setActive("twoWeeks");
           }}
-          className={`${styles.answer} ${active == 5 ? styles.active : ""}`}
+          className={`${styles.answer} ${
+            active == "twoWeeks" ? styles.active : ""
+          }`}
         >
           e. Every two weeks
         </div>
@@ -74,7 +84,7 @@ const SecondQuestion = ({ answer, setAnswer }) => {
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <g clip-path="url(#clip0_2_55)">
+            <g clipPath="url(#clip0_2_55)">
               <path
                 d="M13.8517 5.38135L17.7527 9.28229L1.21736 9.28219L1.21736 10.7174L17.7527 10.7173L13.8517 14.6183L14.8666 15.6332L20.5 9.9998L14.8666 4.36643L13.8517 5.38135Z"
                 fill="#1C2635"

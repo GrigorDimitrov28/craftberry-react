@@ -28,8 +28,8 @@ const Product = ({ id, cover, title, price, toggle, isFavorite }) => {
 		 L100,50,
 		 A 1 1 0 1 0 50 0"
           strokeWidth="10px"
-          fill={isFavorite ? "black" : "transparent"}
-          stroke="black"
+          fill={isFavorite ? "#1C2635" : "transparent"}
+          stroke="#1C2635"
         />
       </svg>
       <div className={styles.productCover}>
@@ -43,13 +43,14 @@ const Product = ({ id, cover, title, price, toggle, isFavorite }) => {
   );
 };
 
-const ResultsPage = () => {
+const ResultsPage = ({ clear }) => {
   const [products, setProducts] = useState([]);
   const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     // Set initial favorites state if localStorage has any data
     const localData = JSON.parse(localStorage.getItem("favorites"));
+    const state = JSON.parse(localStorage.getItem("answers"));
     if (localData) setFavorites(localData);
 
     const fetchData = async () => {
@@ -58,12 +59,34 @@ const ResultsPage = () => {
       );
 
       const { products } = await data.json();
+      let recommended = [];
 
-      // Sort the products to put the favorites first
+      for (let p of products) {
+        if (p.tags.includes(state.qFirst)) {
+          recommended.push(p);
+          continue;
+        }
+        if (p.tags.includes(state.qSecond)) {
+          recommended.push(p);
+          continue;
+        }
+        if (p.tags.includes(state.qThird)) {
+          recommended.push(p);
+          continue;
+        }
+        if (p.tags.includes(state.qFourth)) {
+          recommended.push(p);
+          continue;
+        }
+        if (p.title.includes(state.qFifth)) {
+          recommended.push(p);
+        }
+      }
+
       setProducts(
-        products.slice(0, 3).sort((a, b) => {
-          let aPrio = localData.includes(a.id);
-          let bPrio = localData.includes(b.id);
+        recommended.sort((a, b) => {
+          let aPrio = localData && localData.includes(a.id);
+          let bPrio = localData && localData.includes(b.id);
 
           if (aPrio && !bPrio) {
             return -1;
@@ -101,7 +124,15 @@ const ResultsPage = () => {
           choosing relaxing fragrances you can add a moment of calm to the end
           of your day.
         </p>
-        <Link to="/">Retake the quiz</Link>
+        <Link
+          onClick={() => {
+            clear({});
+            localStorage.setItem("answers", JSON.stringify({}));
+          }}
+          to="/"
+        >
+          Retake the quiz
+        </Link>
       </div>
       <div className={styles.overlay}></div>
 
