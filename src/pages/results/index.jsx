@@ -9,23 +9,85 @@ import "swiper/css/pagination";
 
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 
-const ResultsPage = ({ state }) => {
+const Product = ({ id, cover, title, price, toggle, isFavorite }) => {
+  return (
+    <>
+      <svg
+        title="SVG Heart Icon"
+        viewBox="-15 -11 130 120"
+        width="150"
+        height="150"
+        className={styles.heart}
+        onClick={() => toggle(id)}
+      >
+        <path
+          d="
+		 M 50 0,
+		 A 1 1 0 1 0 0 50, 
+		 L50,100, 
+		 L100,50,
+		 A 1 1 0 1 0 50 0"
+          strokeWidth="10px"
+          fill={isFavorite ? "black" : "transparent"}
+          stroke="black"
+        />
+      </svg>
+      <div className={styles.productCover}>
+        <img src={cover} alt="product cover" />
+      </div>
+      <div className={styles.productDetails}>
+        <h2 className={styles.productTitle}>{title}</h2>
+        <p className={styles.productPrice}>{"$" + price}</p>
+      </div>
+    </>
+  );
+};
+
+const ResultsPage = () => {
   const [products, setProducts] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
+    // Set initial favorites state if localStorage has any data
+    const localData = JSON.parse(localStorage.getItem("favorites"));
+    if (localData) setFavorites(localData);
+
     const fetchData = async () => {
       const data = await fetch(
         "https://jeval.com.au/collections/hair-care/products.json?page=1"
       );
 
-      const res = await data.json();
+      const { products } = await data.json();
 
-      setProducts(res.products.slice(25, 30));
-      console.log(res.products);
+      // Sort the products to put the favorites first
+      setProducts(
+        products.slice(0, 3).sort((a, b) => {
+          let aPrio = localData.includes(a.id);
+          let bPrio = localData.includes(b.id);
+
+          if (aPrio && !bPrio) {
+            return -1;
+          } else if (bPrio && !aPrio) {
+            return 1;
+          } else {
+            return 0;
+          }
+        })
+      );
     };
 
     fetchData();
   }, []);
+
+  // Adds the id to favorites state and updates localStorage
+  const toggleFavorite = (id) => {
+    const updated = favorites.includes(id)
+      ? favorites.filter((pId) => pId !== id)
+      : [...favorites, id];
+
+    setFavorites(updated);
+    localStorage.setItem("favorites", JSON.stringify(updated));
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -70,32 +132,14 @@ const ResultsPage = ({ state }) => {
           {products.map((p) => {
             return (
               <SwiperSlide className={styles.slide} key={p.id}>
-                <svg
-                  title="SVG Heart Icon"
-                  viewBox="-15 -11 130 120"
-                  width="150"
-                  height="150"
-                  className={styles.heart}
-                >
-                  <path
-                    d="
-		 M 50 0,
-		 A 1 1 0 1 0 0 50, 
-		 L50,100, 
-		 L100,50,
-		 A 1 1 0 1 0 50 0"
-                    strokeWidth="10px"
-                    fill="transparent"
-                    stroke="black"
-                  />
-                </svg>
-                <div className={styles.productCover}>
-                  <img src={p.images[0].src} alt="product cover" />
-                </div>
-                <div className={styles.productDetails}>
-                  <h2 className={styles.productTitle}>{p.title}</h2>
-                  <p className={styles.productPrice}></p>
-                </div>
+                <Product
+                  id={p.id}
+                  cover={p.images[0].src}
+                  title={p.title}
+                  price={p.variants[0].price}
+                  toggle={toggleFavorite}
+                  isFavorite={favorites.includes(p.id) ? true : false}
+                />
               </SwiperSlide>
             );
           })}
