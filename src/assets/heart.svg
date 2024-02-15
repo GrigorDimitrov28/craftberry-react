@@ -1,0 +1,18 @@
+<svg
+        title="SVG Heart Icon"
+        viewBox="-15 -11 130 120"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        xmlns:ev="http://www.w3.org/2001/xml-events"
+      >
+        <path
+          d="
+		 M 50 0,
+		 A 1 1 0 1 0 0 50, 
+		 L50,100, 
+		 L100,50,
+		 A 1 1 0 1 0 50 0"
+          strokeWidth="10px"
+          stroke="#1C2635"
+        />
+      </svg>

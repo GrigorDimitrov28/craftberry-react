@@ -68,7 +68,9 @@
   background-color: #daf4ff73;
 }
 
-.answer:hover {
+.answer:hover,
+.threeD:hover,
+.threeF:hover {
   cursor: pointer;
 }
 

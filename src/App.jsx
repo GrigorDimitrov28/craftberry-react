@@ -53,7 +53,7 @@ function App() {
           exact
           element={
             <FirstQuestion
-              answer={answers.qFirst}
+              answer={answers?.qFirst}
               setAnswer={handleSetAnswer}
             />
           }
@@ -63,7 +63,7 @@ function App() {
           exact
           element={
             <SecondQuestion
-              answer={answers.qSecond}
+              answer={answers?.qSecond}
               setAnswer={handleSetAnswer}
             />
           }
@@ -73,7 +73,7 @@ function App() {
           exact
           element={
             <ThirdQuestion
-              answer={answers.qThird}
+              answer={answers?.qThird}
               setAnswer={handleSetAnswer}
             />
           }
@@ -83,7 +83,7 @@ function App() {
           exact
           element={
             <FourthQuestion
-              answer={answers.qFourth}
+              answer={answers?.qFourth}
               setAnswer={handleSetAnswer}
             />
           }
@@ -93,7 +93,7 @@ function App() {
           exact
           element={
             <FifthQuestion
-              answer={answers.qFifth}
+              answer={answers?.qFifth}
               setAnswer={handleSetAnswer}
               state={answers}
             />

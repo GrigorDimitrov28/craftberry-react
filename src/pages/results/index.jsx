@@ -15,20 +15,21 @@ const Product = ({ id, cover, title, price, toggle, isFavorite }) => {
       <svg
         title="SVG Heart Icon"
         viewBox="-15 -11 130 120"
-        width="150"
-        height="150"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        xmlns:ev="http://www.w3.org/2001/xml-events"
         className={styles.heart}
         onClick={() => toggle(id)}
       >
         <path
           d="
-		 M 50 0,
-		 A 1 1 0 1 0 0 50, 
-		 L50,100, 
-		 L100,50,
+		 M 50 0
+		 A 1 1 0 1 0 0 50 
+		 L50 100  
+		 L100 50 
 		 A 1 1 0 1 0 50 0"
           strokeWidth="10px"
-          fill={isFavorite ? "#1C2635" : "transparent"}
+          fill={isFavorite ? "#1C2635" : "none"}
           stroke="#1C2635"
         />
       </svg>
