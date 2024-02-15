@@ -111,3 +111,7 @@
   border-radius: 8px;
   font-weight: 500;
 }
+
+.disabled {
+  pointer-events: none;
+}

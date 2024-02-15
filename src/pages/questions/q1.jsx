@@ -56,7 +56,7 @@ const FirstQuestion = ({ answer, setAnswer }) => {
             setAnswer("qFirst", active);
           }}
           to="/q2"
-          className={styles.next}
+          className={`${styles.next} ${!active ? styles.disabled : ""}`}
         >
           Next question
           <svg

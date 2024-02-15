@@ -64,7 +64,7 @@ const FifthQuestion = ({ answer, setAnswer, state }) => {
             setAnswer("qFifth", active);
           }}
           to="/results"
-          className={styles.discover}
+          className={`${styles.discover} ${!active ? styles.disabled : ""}`}
         >
           Discover your results
         </Link>
