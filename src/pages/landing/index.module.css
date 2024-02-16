@@ -70,3 +70,20 @@
 .start {
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  .container h1 {
+    max-width: 90vw;
+    font-size: 2em;
+    line-height: 1em;
+    height: auto;
+  }
+
+  .container p {
+    max-width: 90vw;
+  }
+
+  .container {
+    gap: 16px;
+  }
+}

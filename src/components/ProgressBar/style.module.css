@@ -39,6 +39,15 @@
   z-index: 0;
 }
 
+@media screen and (max-width: 1300px) {
+  .wrapper {
+    position: fixed;
+    top: 10em;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes firstRight {
   from {
     background: conic-gradient(#aaddf3 72deg, #eef7fb 0deg);

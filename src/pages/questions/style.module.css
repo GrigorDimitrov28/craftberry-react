@@ -115,3 +115,18 @@
 .disabled {
   pointer-events: none;
 }
+
+@media screen and (max-width: 1000px) {
+  .question {
+    max-width: 90vw;
+    font-size: 2em;
+    line-height: 1em;
+    height: auto;
+  }
+  .answerContainer {
+    flex-direction: column;
+  }
+  .thirdAnswerContainer {
+    flex-direction: column;
+  }
+}

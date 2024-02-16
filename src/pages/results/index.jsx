@@ -138,15 +138,32 @@ const ResultsPage = ({ clear }) => {
       <div className={styles.overlay}></div>
 
       <div className={styles.swiperContainer}>
+        <button className="custom-swiper-button-prev"></button>
+        <button className="custom-swiper-button-next"></button>
         <Swiper
           // install Swiper modules
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          spaceBetween={36}
-          slidesPerView={3}
-          navigation
+          navigation={{
+            prevEl: ".custom-swiper-button-prev",
+            nextEl: ".custom-swiper-button-next",
+          }}
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           className={styles.swiper}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 12,
+            },
+            1024: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            1400: {
+              slidesPerView: 3,
+              spaceBetween: 36,
+            },
+          }}
         >
           <SwiperSlide className={styles.swiperFirst}>
             <div className={styles.firstContent}>

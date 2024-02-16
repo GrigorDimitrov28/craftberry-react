@@ -8,8 +8,7 @@
 
 body {
   margin: 0;
-
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 #root {
@@ -30,28 +29,35 @@ a {
   font-family: "Raleway", sans-serif;
 }
 
-.swiper-button-next,
-.swiper-button-prev {
+.custom-swiper-button-next,
+.custom-swiper-button-prev {
   height: 60px;
   width: 60px;
   border-radius: 50%;
   background-color: #eef7fb;
-  position: fixed;
+  position: absolute;
+  border: none;
+  top: calc(50% - 69px);
 }
 
-.swiper-button-prev {
-  left: 70px;
+.custom-swiper-button-next:hover,
+.custom-swiper-button-prev:hover {
+  cursor: pointer;
+}
+
+.custom-swiper-button-prev {
+  position: absolute;
+  left: -80px;
   margin: 0;
-  top: 670px;
   background-image: url("./assets/arrow.svg");
   background-repeat: no-repeat;
   background-position: center;
   transform: rotate(180deg);
 }
 
-.swiper-button-next {
-  top: 670px;
-  right: 70px;
+.custom-swiper-button-next {
+  margin: 0;
+  right: -80px;
   background-image: url("./assets/arrow.svg");
   background-repeat: no-repeat;
   background-position: center;
@@ -67,10 +73,8 @@ a {
 }
 
 .swiper-pagination {
-  position: fixed;
-  top: 923px !important;
-  bottom: 0;
   margin: 0;
+  bottom: 0;
 }
 
 .swiper-pagination-bullet {
@@ -80,4 +84,11 @@ a {
 
 .swiper-pagination-bullet-active {
   background-color: #5bc1ed;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-swiper-button-next,
+  .custom-swiper-button-prev {
+    display: none;
+  }
 }
