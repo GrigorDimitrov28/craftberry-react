@@ -13,7 +13,7 @@ import ProgressBar from "./components/ProgressBar";
 function App() {
   // Store answers here to be accessible after page navigation
   const [answers, setAnswers] = useState({
-    qFirst: null,
+    qFirst: 11,
     qSecond: null,
     qThird: null,
     qFourth: null,
