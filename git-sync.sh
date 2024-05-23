@@ -1,5 +1,3 @@
-#!/bin/bash
-
 git add .
 if [ $? -ne 0 ]; then
   echo "Failed to add."
